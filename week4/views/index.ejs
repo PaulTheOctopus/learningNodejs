@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= subtitle %></p>
+    <p>Entry ID: <b><%= entry.id %></b></p>
+    <p>date:  <b>[<%= entry.date %>]</b></p>
+    <p>city:  <b>[<%= entry.city %>]</b></p>
+    <p>data:  <b>[<%= JSON.stringify(entry.data, null, '\t') %>]</b></p>
+    <p>current weather: <ul>
+        <li><%- JSON.stringify(entry.data.weather[0].description, null, '\t') %></li>
+        <li>temp: <%- JSON.stringify((entry.data.main.temp - 273).toFixed(1), null, '\t') %> celsius</li>
+        <li>pressure: <%- JSON.stringify(entry.data.main.pressure, null, '\t') %></li>
+        <li>humidity: <%- JSON.stringify(entry.data.main.humidity, null, '\t') %> %</li>
+    </ul>
+    </p>
+</body>
+</html>
